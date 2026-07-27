@@ -337,7 +337,7 @@ contactForm.addEventListener("submit", function (e) {
     }, 3500);
   }
 emailjs.init({
-    publicKey: "service_umxs5ba",
+    publicKey: "cwG690Vs914ebRMo6",
 });
 
   // --------------------------------------------------------------------------
