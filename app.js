@@ -300,15 +300,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   // 8. CONTACT FORM SUBMISSION & TOAST SYSTEM
   // --------------------------------------------------------------------------
- const contactForm = document.getElementById("contact-form");
+const contactForm = document.getElementById("contact-form");
 
 contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     emailjs.sendForm(
         "service_umxs5ba",
-        "service_umxs5ba",
-        this
+        "template_quvf0bq",
+        this,
+        "cwG690Vs914ebRMo6"
     )
     .then(() => {
         playCuteChime(880);
