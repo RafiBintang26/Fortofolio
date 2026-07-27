@@ -300,14 +300,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   // 8. CONTACT FORM SUBMISSION & TOAST SYSTEM
   // --------------------------------------------------------------------------
-  const contactForm = document.getElementById('contact-form');
-  contactForm.addEventListener('submit', (e) => {
+ const contactForm = document.getElementById("contact-form");
+
+contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    playCuteChime(880);
-    triggerSprinkleConfetti(window.innerWidth / 2, window.innerHeight / 2);
-    showToast("✨ Thank you! Your message has been sent successfully!");
-    contactForm.reset();
-  });
+
+    emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        this
+    )
+    .then(() => {
+        playCuteChime(880);
+        triggerSprinkleConfetti(window.innerWidth / 2, window.innerHeight / 2);
+        showToast("✨ Thank you! Your message has been sent successfully!");
+        contactForm.reset();
+    })
+    .catch((error) => {
+        console.error(error);
+        showToast("❌ Failed to send message.");
+    });
+});
 
   function showToast(msg) {
     const container = document.getElementById('toast-container');
@@ -322,7 +335,9 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => toast.remove(), 400);
     }, 3500);
   }
-
+emailjs.init({
+    publicKey: "service_umxs5ba",
+});
 
   // --------------------------------------------------------------------------
   // 9. ACTIVE NAV LINK OBSERVER
