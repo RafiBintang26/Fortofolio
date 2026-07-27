@@ -306,8 +306,8 @@ contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     emailjs.sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_umxs5ba",
+        "service_umxs5ba",
         this
     )
     .then(() => {
